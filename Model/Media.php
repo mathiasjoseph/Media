@@ -142,9 +142,9 @@ abstract class Media implements MediaInterface
     protected $toRemove;
 
     /**
-     * @var boolean
+     * @var string
      */
-    protected $drafted;
+    public $tempContext;
 
 
     /**
@@ -667,22 +667,5 @@ abstract class Media implements MediaInterface
     {
         $this->toRemove = $toRemove;
     }
-
-    /**
-     * @return bool
-     */
-    public function isDrafted()
-    {
-        return $this->drafted;
-    }
-
-    /**
-     * @param bool $drafted
-     */
-    public function setDrafted($drafted)
-    {
-        $this->drafted = $drafted;
-    }
-
 
 }
