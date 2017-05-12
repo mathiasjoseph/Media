@@ -51,11 +51,6 @@ interface MediaInterface
     public function unsetMetadataValue($name);
 
     /**
-     * @return mixed
-     */
-    public function getId();
-
-    /**
      * Set name.
      *
      * @param string $name

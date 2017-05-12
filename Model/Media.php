@@ -5,12 +5,22 @@
 namespace Miky\Component\Media\Model;
 
 use Imagine\Image\Box;
-use Sonata\ClassificationBundle\Model\CategoryInterface;
+use Miky\Component\Core\Model\CommonModelInterface;
+use Miky\Component\Core\Model\CommonModelTrait;
+use Miky\Component\Classification\Model\CategoryInterface;
+use Miky\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\ExecutionContextInterface as LegacyExecutionContextInterface;
 
-abstract class Media implements MediaInterface
+class Media implements MediaInterface, CommonModelInterface, ResourceInterface
 {
+    Use CommonModelTrait;
+
+    /**
+     * @var mixed
+     */
+    protected $id;
+
     /**
      * @var string
      */
@@ -145,6 +155,15 @@ abstract class Media implements MediaInterface
      * @var string
      */
     public $tempContext;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
 
     /**

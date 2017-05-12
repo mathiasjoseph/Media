@@ -5,9 +5,20 @@
 namespace Miky\Component\Media\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Miky\Component\Core\Model\CommonModelInterface;
+use Miky\Component\Core\Model\CommonModelTrait;
+use Miky\Component\Resource\Model\ResourceInterface;
 
-abstract class Gallery implements GalleryInterface
+class Gallery implements GalleryInterface, CommonModelInterface, ResourceInterface
 {
+
+    Use CommonModelTrait;
+
+    /**
+     * @var mixed
+     */
+    protected $id;
+
     /**
      * @var string
      */
@@ -42,6 +53,15 @@ abstract class Gallery implements GalleryInterface
      * @var GalleryHasMediaInterface[]
      */
     protected $galleryHasMedias;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     /**
      * {@inheritdoc}

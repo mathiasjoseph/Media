@@ -4,8 +4,20 @@
 
 namespace Miky\Component\Media\Model;
 
-abstract class GalleryHasMedia implements GalleryHasMediaInterface
+use Miky\Component\Core\Model\CommonModelInterface;
+use Miky\Component\Core\Model\CommonModelTrait;
+use Miky\Component\Resource\Model\ResourceInterface;
+
+class GalleryHasMedia implements GalleryHasMediaInterface, CommonModelInterface, ResourceInterface
 {
+
+    Use CommonModelTrait;
+
+    /**
+     * @var mixed
+     */
+    protected $id;
+
     /**
      * @var MediaInterface
      */
@@ -36,6 +48,8 @@ abstract class GalleryHasMedia implements GalleryHasMediaInterface
      */
     protected $enabled;
 
+
+
     /**
      * Construct.
      */
@@ -44,6 +58,15 @@ abstract class GalleryHasMedia implements GalleryHasMediaInterface
         $this->position = 0;
         $this->enabled = false;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     /**
      * {@inheritdoc}
