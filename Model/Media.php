@@ -5,12 +5,12 @@
 namespace Miky\Component\Media\Model;
 
 use Imagine\Image\Box;
-use Miky\Component\Classification\Model\CategoryInterface;
+use Miky\Component\Category\Model\CategoryInterface;
 use Miky\Component\Core\Model\CommonModelInterface;
 use Miky\Component\Core\Model\CommonModelTrait;
 use Miky\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Symfony\Component\Validator\ExecutionContextInterface as LegacyExecutionContextInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface as LegacyExecutionContextInterface;
 
 class Media implements MediaInterface, CommonModelInterface, ResourceInterface
 {
