@@ -39,6 +39,11 @@ class Media implements MediaInterface, CommonModelInterface, ResourceInterface
     /**
      * @var string
      */
+    protected $token;
+
+    /**
+     * @var string
+     */
     protected $providerName;
 
     /**
@@ -147,14 +152,18 @@ class Media implements MediaInterface, CommonModelInterface, ResourceInterface
     protected $category;
 
     /**
-     * @var boolean
-     */
-    protected $toRemove;
-
-    /**
      * @var string
      */
-    public $tempContext;
+    public $temporary;
+
+    /**
+     * Media constructor.
+     */
+    public function __construct()
+    {
+        $this->temporary = false;
+    }
+
 
     /**
      * @return mixed
@@ -174,16 +183,7 @@ class Media implements MediaInterface, CommonModelInterface, ResourceInterface
         return $this->getName() ?: 'n/a';
     }
 
-    public function prePersist()
-    {
-        $this->setCreatedAt(new \DateTime());
-        $this->setUpdatedAt(new \DateTime());
-    }
 
-    public function preUpdate()
-    {
-        $this->setUpdatedAt(new \DateTime());
-    }
 
     /**
      * @static
@@ -672,19 +672,34 @@ class Media implements MediaInterface, CommonModelInterface, ResourceInterface
     }
 
     /**
-     * @return bool
+     * @return string
      */
-    public function isToRemove()
+    public function getToken()
     {
-        return $this->toRemove;
+        return $this->token;
     }
 
     /**
-     * @param bool $toRemove
+     * @param string $token
      */
-    public function setToRemove($toRemove)
+    public function setToken($token)
     {
-        $this->toRemove = $toRemove;
+        $this->token = $token;
     }
 
+    /**
+     * @return string
+     */
+    public function getTemporary()
+    {
+        return $this->temporary;
+    }
+
+    /**
+     * @param string $temporary
+     */
+    public function setTemporary($temporary)
+    {
+        $this->temporary = $temporary;
+    }
 }
