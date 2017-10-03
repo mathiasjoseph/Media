@@ -152,7 +152,7 @@ class Media implements MediaInterface, CommonModelInterface, ResourceInterface
     protected $category;
 
     /**
-     * @var string
+     * @var boolean
      */
     public $temporary;
 
@@ -688,18 +688,20 @@ class Media implements MediaInterface, CommonModelInterface, ResourceInterface
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getTemporary()
+    public function isTemporary()
     {
         return $this->temporary;
     }
 
     /**
-     * @param string $temporary
+     * @param bool $temporary
      */
     public function setTemporary($temporary)
     {
         $this->temporary = $temporary;
     }
+
+
 }
